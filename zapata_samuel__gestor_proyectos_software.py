@@ -53,42 +53,35 @@ class GestorProyectos:
          
 
 
-# Colaboradores
-ana   = Colaborador(username="ana_dev", email="ana@mail.com")
-luis  = Colaborador(username="luis99",  email="luis@mail.com")
-sofia = Colaborador(username="sofiaml", email="sofia@mail.com")
+if __name__ == "__main__":
+    # Colaboradores
+    ana   = Colaborador(username="ana_dev", email="ana@mail.com")
+    luis  = Colaborador(username="luis99",  email="luis@mail.com")
+    sofia = Colaborador(username="sofiaml", email="sofia@mail.com")
 
-# Proyectos
-p1 = Proyecto(nombre="InventarioApp", lenguaje="Python")
-p1.agregar_colaborador(ana)
-p1.agregar_colaborador(luis)
-p1.agregar_colaborador(ana)   # aviso: ya existe
+    p1 = Proyecto(nombre="InventarioApp", lenguaje="Python")
+    p1.agregar_colaborador(ana)
+    p1.agregar_colaborador(luis)
+    p1.agregar_colaborador(ana)
 
-p2 = Proyecto(nombre="WebStore", lenguaje="JavaScript")
-p2.agregar_colaborador(sofia)
+    p2 = Proyecto(nombre="WebStore", lenguaje="JavaScript")
+    p2.agregar_colaborador(sofia)
 
-# __str__
-print(p1)  # Proyecto: InventarioApp [Python] — 2 colaborador(es)
-print(p2)  # Proyecto: WebStore [JavaScript] — 1 colaborador(es)
+    print(p1)
+    print(p2)
 
-# tiene_colaborador
-print(p1.tiene_colaborador("ana_dev"))  # True
-print(p1.tiene_colaborador("sofiaml"))  # False
-#print(p1.tiene_colaborador("luis99"))  # True solo para ver
-# Gestor
-gestor = GestorProyectos()
-gestor.registrar_proyecto(p1)
-gestor.registrar_proyecto(p2)
-gestor.registrar_proyecto(p1)  # aviso: ya existe
+    print(p1.tiene_colaborador("ana_dev"))
+    print(p1.tiene_colaborador("sofiaml"))
 
-encontrado = gestor.buscar_proyecto("WebStore")
-print(encontrado)  # Proyecto: WebStore [JavaScript] — 1 colaborador(es)
+    gestor = GestorProyectos()
+    gestor.registrar_proyecto(p1)
+    gestor.registrar_proyecto(p2)
+    gestor.registrar_proyecto(p1)
 
-no_existe = gestor.buscar_proyecto("OtroProyecto")
-print(no_existe)   # None
+    encontrado = gestor.buscar_proyecto("WebStore")
+    print(encontrado)
 
-#para mirar si esta bien
-#encontrado1 = gestor.buscar_proyecto("InventarioApp")
-#print(encontrado1)  # Proyecto: InventarioApp [Python] — 2 colaborador(es)
+    no_existe = gestor.buscar_proyecto("OtroProyecto")
+    print(no_existe)
 
-print(len(gestor.listar_proyectos()))  # 2
+    print(len(gestor.listar_proyectos()))
