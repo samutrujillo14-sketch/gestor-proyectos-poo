@@ -26,7 +26,12 @@ class Proyecto:
             if colaborador.username == username:
                 return True
         return False
-    
+
+    def eliminar_colaborador(self, username: str) -> None:
+        original = len(self.colaboradores)
+        self.colaboradores = [c for c in self.colaboradores if c.username != username]
+        if len(self.colaboradores) == original:
+            print(f"Aviso: no se encontró el colaborador '{username}'.")
 
 class GestorProyectos:
     def __init__(self):
